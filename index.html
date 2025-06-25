@@ -1,105 +1,539 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daksh Property & Builders</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background-color: #003366; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 10px 0; }
-    .container { padding: 20px; }
-    h2 { color: #003366; }
-    .catalog { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; }
-    .catalog-item {
-      background: white;
-      border: 1px solid #ccc;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daksh Property & Builders - Trusted Real Estate & Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Daksh Property & Builders offers 35+ years of trusted real estate, property sales & purchase, and construction services in Ambala Cantt, Haryana. Contact us for land, plots, houses, shops, and construction projects.">
+  <meta name="keywords" content="Daksh Property, Builders Ambala Cantt, Real Estate Ambala, Property Sale Ambala, Property Purchase Ambala, Construction Services, Land Deals, Plots Ambala, House Construction, Shop Construction, Army Tenders, Plumbing Services">
+  <link rel="canonical" href="https://www.yourwebsite.com/"> <style>
+    :root {
+      --primary-color: #003366; /* Dark Blue */
+      --secondary-color: #004080; /* Slightly lighter blue */
+      --accent-color: #25D366; /* WhatsApp Green */
+      --text-color: #333;
+      --light-bg: #f5f8fa;
+      --white: #fff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --hover-transition: transform 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: var(--light-bg);
+      color: var(--text-color);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth; /* Smooth scrolling for nav links */
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-padding {
+        padding: 40px 0; /* Add top/bottom padding for sections */
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.6rem; }
+    h4 { font-size: 1.3rem; }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 10px 20px; /* Reduced padding slightly for logo */
+      position: sticky; /* Makes it stick to the top */
+      top: 0;
+      z-index: 1000; /* Ensures it's above other content */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo-img { /* Styling for the logo image */
+      height: 50px; /* Adjust as needed */
+      width: auto;
+      vertical-align: middle;
+    }
+    .navbar .logo { /* Keep this if you want to fall back to text, or remove if always image */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem; /* Fallback text size */
+        font-weight: 700;
+        color: var(--white);
+    }
+
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-weight: 600;
+      transition: color 0.3s ease;
+      position: relative; /* For underline effect */
+    }
+
+    .nav-links a:hover {
+      color: #a0c4ff; /* Lighter shade on hover */
+    }
+
+    .nav-links a::after { /* Underline effect on hover */
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--white);
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex; /* Use flexbox for vertical alignment */
+      flex-direction: column;
+      justify-content: center;
+      min-height: 300px; /* Ensure a decent height */
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    header p {
+      margin: 15px 0 30px;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header-cta-button {
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 15px 30px;
       border-radius: 8px;
-      padding: 15px;
-      /* REMOVE OR COMMENT OUT THIS LINE to allow the item to size based on content/flex */
-      /* width: 300px; */
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      /* You might also want to remove the height if it's fixed and you want it to adjust automatically */
-      /* height: 313.438px; */ /* Remove this line if it's in your original code */
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .header-cta-button:hover {
+      background: #20b05b; /* Slightly darker green */
+      transform: translateY(-2px);
+      color: var(--white); /* Keep text white on hover */
+    }
+
+
+    /* Features Grid (for About Us - Why Choose Us) */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--hover-transition);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-item h4 {
+      color: var(--primary-color);
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+    .feature-item p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* Basic Icons (replace with actual SVG or Font Awesome later if preferred) */
+    .feature-item i {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        display: block; /* Ensures it takes full line */
+        margin-bottom: 10px;
+    }
+    .icon-experience::before { content: '🏗️'; } /* Example Emojis as icons */
+    .icon-trust::before { content: '🤝'; }
+    .icon-comprehensive::before { content: '🏢'; }
+    .icon-quality::before { content: '✅'; }
+
+
+    /* Services List */
+    .services-list {
+      list-style: none; /* Remove default bullets */
+      padding: 0;
+    }
+
+    .services-list li {
+      background: var(--white);
+      margin-bottom: 10px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-left: 5px solid var(--primary-color); /* Accent border */
+      transition: transform 0.2s ease;
+    }
+
+    .services-list li:hover {
+        transform: translateX(5px);
+    }
+
+    .services-list li strong {
+      color: var(--primary-color);
+    }
+
+
+    /* Catalog Items (Office & Projects) */
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .catalog-item {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--hover-transition);
+      display: flex; /* Use flex for internal layout if needed */
+      flex-direction: column;
+    }
+    .catalog-item:hover {
+      transform: translateY(-8px); /* More pronounced hover */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Stronger shadow on hover */
     }
     .catalog-item img {
-      width: 100%; /* ENSURE THIS IS SET to make the image fill the container width */
-      height: auto; /* ENSURE THIS IS SET to maintain aspect ratio based on width */
-      object-fit: cover; /* Keep 'cover' if you want it to fill and crop, or change to 'contain' to prevent cropping */
-      border-radius: 6px;
+      width: 100%;
+      height: 250px; /* Slightly taller images */
+      object-fit: cover;
+      transition: transform 0.3s ease; /* Zoom effect on image */
     }
-    footer { background-color: #003366; color: white; text-align: center; padding: 10px; margin-top: 30px; }
-    .contact { margin-top: 15px; }
+    .catalog-item:hover img {
+        transform: scale(1.05);
+    }
+    .catalog-item h3 {
+      margin: 15px 15px 10px;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+    .catalog-item p {
+      margin: 0 15px 20px;
+      color: #555;
+      flex-grow: 1; /* Make paragraph take available space for consistent height */
+    }
+
+    /* WhatsApp CTA */
+    .whatsapp-cta {
+      text-align: center;
+      margin: 60px 0 40px; /* More vertical space */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-cta a {
+      display: flex; /* Align icon and text */
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 30px;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--hover-transition);
+      border: 2px solid var(--accent-color); /* Highlight with border */
+    }
+    .whatsapp-cta a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .whatsapp-cta img {
+      width: 70px; /* Slightly larger icon */
+      margin-bottom: 10px;
+    }
+    .whatsapp-cta p {
+      color: var(--accent-color);
+      font-weight: 700;
+      font-size: 1.3rem; /* Larger text */
+      margin: 0; /* Remove default paragraph margin */
+    }
+
+
+    /* Social Icons */
+    .social-icons, .footer-social-icons {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px; /* Added for standalone social icons */
+    }
+    .social-icons a, .footer-social-icons a {
+      margin: 0 15px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover, .footer-social-icons a:hover {
+      transform: translateY(-3px) scale(1.1);
+    }
+    .social-icons img, .footer-social-icons img {
+      width: 48px; /* Standardize icon size */
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1)); /* Subtle shadow for icons */
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 60px; /* More space before footer */
+    }
+    .footer-content {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    footer p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.8);
+    }
+    .footer-logo-img { /* Styling for logo in footer */
+        height: 60px; /* Larger in footer */
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+        .nav-links {
+            display: none; /* Hide nav links on smaller screens for now, consider a hamburger menu */
+        }
+        .navbar .logo {
+            width: 100%;
+            text-align: center;
+        }
+        .navbar .logo-img {
+            height: 40px; /* Adjust logo size for smaller screens */
+        }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.8rem; }
+      header p { font-size: 1.2rem; }
+      .container { padding: 30px 15px; }
+      .section-padding { padding: 30px 0; }
+      h2 { font-size: 1.8rem; }
+      h3 { font-size: 1.4rem; }
+      .features-grid, .catalog {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+      }
+      .whatsapp-cta img { width: 50px; }
+      .whatsapp-cta p { font-size: 1.1rem; }
+      .social-icons img, .footer-social-icons img { width: 40px; }
+    }
+
+    @media (max-width: 480px) {
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1rem; }
+        .header-cta-button {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        .feature-item { padding: 20px; }
+        .catalog-item img { height: 200px; }
+    }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Daksh Property & Builders</h1>
-  <p>35+ Years of Trusted Real Estate & Construction Services</p>
-</header>
-
-<div class="container">
-  <h2>About Us</h2>
-  <p><strong>Owner:</strong> Inder Sain & Ajay Parjapat</p>
-  <p>We provide comprehensive property solutions including sale & purchase of land, plots, houses, shops, and construction services. Trusted by the community for 35+ years.</p>
-
-  <div class="contact">
-    <h2>Contact Details</h2>
-    <p><strong>Call:</strong> +91 9416541416, +91 8950593945, +91 9596832987</p>
-    <p><strong>WhatsApp:</strong> +91 9596832987</p>
-    <p><strong>Email:</strong> dakshpropertybuilders@gmail.com</p>
-  </div>
-
-  <h2>Our Services</h2>
-  <ul>
-    <li>Property Sale and Purchase</li>
-    <li>Agriculture Land Dealing</li>
-    <li>Factory Space Arrangements</li>
-    <li>Construction & Contraction Projects</li>
-    <li>Army Tenders & Contracts</li>
-    <li>Plumbing & Repairing Services</li>
-  </ul>
-
-  <h2>Our Office</h2>
-  <div class="catalog">
-    <div class="catalog-item">
-      <img src="assets/images/office_1.jpeg" alt="Office Interior">
-      <h3> Office</h3>
-      <p>Shop No. 5, Jagadhari Rd, opposite Gagan banquet, near Tangri Road, Ambala Cantt, Rampur, Haryana 133006.</p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.jpeg" alt="Daksh Property & Builders Logo" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Our Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <div class="catalog-item">
-      <img src="assets/images/office_2.jpeg" alt="Reception View">
-      <h3>Property Discussion Area</h3>
-      <p>False ceiling design with LED lights and dual-tone wall finishing.</p>
+  </nav>
+
+  <header>
+    <h1>Daksh Property & Builders</h1>
+    <p>35+ Years of Trusted Real Estate & Construction Services</p>
+    <a href="#contact" class="header-cta-button">Get in Touch Today</a>
+  </header>
+
+  <div class="container">
+    <section id="about" class="section-padding">
+      <h2>About Us</h2>
+      <p><strong>Owners:</strong> Inder Sain & Ajay Parjapat</p>
+      <p>With over 35 years of unparalleled experience, Daksh Property & Builders stands as a pillar of trust and reliability in the real estate and construction sector in Ambala Cantt and surrounding regions. We specialize in providing comprehensive property solutions tailored to your needs, from facilitating seamless property transactions to executing high-quality construction projects.</p>
+
+      <h3>Why Choose Us?</h3>
+      <div class="features-grid">
+        <div class="feature-item">
+          <h4><i class="icon-experience"></i> 35+ Years of Experience</h4>
+          <p>Leverage our decades of expertise for informed decisions and successful outcomes.</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="icon-trust"></i> Trusted Local Partner</h4>
+          <p>Deep roots in the Ambala community, built on integrity and transparent dealings.</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="icon-comprehensive"></i> Comprehensive Solutions</h4>
+          <p>From land deals to complete construction, we cover all your property needs under one roof.</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="icon-quality"></i> Commitment to Quality</h4>
+          <p>Delivering excellence in every project, ensuring durability and client satisfaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+      <h2>Contact Details</h2>
+      <p><strong>Call Us:</strong> <a href="tel:+919416541416">+91 9416541416</a>, <a href="tel:+918950593945">+91 8950593945</a>, <a href="tel:+919596832987">+91 9596832987</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/919596832987" target="_blank">+91 9596832987</a></p>
+      <p><strong>Email:</strong> <a href="mailto:dakshpropertybuilders@gmail.com">dakshpropertybuilders@gmail.com</a></p>
+      <p><strong>Visit Us:</strong> Shop No. 5, Jagadhari Rd, opposite Gagan banquet, near Tangri Road, Ambala Cantt, Rampur, Haryana 133006.</p>
+    </section>
+
+    <section id="services" class="section-padding">
+      <h2>Our Services</h2>
+      <p>At Daksh Property & Builders, we offer a wide range of services to meet diverse client needs:</p>
+      <ul class="services-list">
+        <li><strong>Property Sale & Purchase:</strong> Expert assistance in buying and selling residential and commercial properties.</li>
+        <li><strong>Agriculture Land Dealing:</strong> Specialized services for acquisition and sale of agricultural lands.</li>
+        <li><strong>Factory Space Arrangements:</strong> Helping businesses find and secure suitable industrial and factory spaces.</li>
+        <li><strong>Construction & Contraction Projects:</strong> From residential homes to commercial complexes, we undertake all types of construction projects.</li>
+        <li><strong>Army Tenders & Contracts:</strong> Experienced in managing and executing government and army contractual works.</li>
+        <li><strong>Plumbing & Repairing Services:</strong> Reliable and efficient plumbing and general repair solutions.</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section-padding">
+      <h2>Our Office & Featured Projects</h2>
+      <p>Explore our office spaces and get a glimpse of the quality and professionalism we bring to every project.</p>
+      <div class="catalog">
+        <div class="catalog-item">
+          <img src="assets/images/Office_front.jpeg" alt="Daksh Property & Builders Office Front View">
+          <h3>Our Office Front</h3>
+          <p>The inviting exterior of our office in Ambala Cantt, ready to welcome you for property consultations.</p>
+        </div>
+        <div class="catalog-item">
+          <img src="assets/images/office_1.jpeg" alt="Daksh Property Office Interior">
+          <h3>Our Office Interior</h3>
+          <p>A look inside our main office space where we handle all property and construction inquiries.</p>
+        </div>
+        <div class="catalog-item">
+          <img src="assets/images/Modern Discussion Area.jpeg" alt="Property Discussion Area with Modern Design">
+          <h3>Modern Discussion Area</h3>
+          <p>A comfortable and professional space designed for client consultations and strategic planning with false ceiling and LED lights.</p>
+        </div>
+        </div>
+    </section>
+
+    <div class="whatsapp-cta">
+      <a href="https://wa.me/919596832987" target="_blank">
+        <img src="https://img.icons8.com/color/96/000000/whatsapp.png" alt="WhatsApp Icon">
+        <p>Chat with us on WhatsApp</p>
+      </a>
     </div>
+          
   </div>
 
-  <div style="text-align: center; margin: 30px 0;">
-    <a href="https://wa.me/919596832987" target="_blank" style="text-decoration: none;">
-      <img src="https://img.icons8.com/color/96/000000/whatsapp.png" alt="WhatsApp" style="width:60px;height:60px;">
-      <p style="color:#25D366; font-weight:bold;">Chat on WhatsApp</p>
-    </a>
-  </div>
-
-  <div style="text-align: center; margin: 10px 0;">
-    <a href="https://instagram.com/dakshpropertybuilders" target="_blank" style="margin: 0 10px;">
-      <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram" style="width:40px;">
-    </a>
-    <a href="https://www.linkedin.com/in/daksh-builders-005b48370" target="_blank" style="margin: 0 10px;">
-      <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="LinkedIn" style="width:40px;">
-    </a>
-    <a href="https://maps.app.goo.gl/E4EUe5GubARoDSfG9" target="_blank" style="margin: 0 10px;">
-      <img src="https://img.icons8.com/fluency/48/google-maps-new.png" alt="Google Maps" style="width:40px;">
-    </a>
-  </div>
-
-</div>
-
-<footer>
-  <p>&copy; 2025 Daksh Property & Builders. All Rights Reserved.</p>
-</footer>
-
+  <footer>
+    <div class="footer-content">
+      <img src="assets/images/logo.jpeg" alt="Daksh Property & Builders" class="footer-logo-img">
+      <p>© 2025 Daksh Property & Builders. All Rights Reserved.</p>
+      <div class="footer-social-icons">
+        <a href="https://instagram.com/dakshpropertybuilders" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/daksh-builders-005b48370" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://maps.app.goo.gl/E4EUe5GubARoDSfG9" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/google-maps-new.png" alt="Google Maps">
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
